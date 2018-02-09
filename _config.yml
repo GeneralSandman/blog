@@ -1,24 +1,24 @@
 # Site Settings
-title: Jekflix | A theme for Jekyll
-email: youremail@xyz.com
-description: Some text about your blog.
-baseurl: "/jekflix-template" # the subpath of your site, e.g. /blog
-url: "https://www.rossener.com" # the base hostname & protocol for your site
-google_analytics: "UA-XXXXXXXX-X"
+title: Hear My Roar
+email: GeneralSandman@163.com
+description: 追求卓越
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://www.dissigil.cn" # the base hostname & protocol for your site
+google_analytics: ""
 
 # User Settings
-username: Jekflix
-user_description: Some text about you.
-disqus_username: disqus_username
+username: GeneralSandman
+user_description: 爱编程，爱运动，C++服务器，努力中！
+disqus_username: GeneralSandman
 
 # Social Media
 # Remove the item if you don't need it
-github_username: github_username
-facebook_username: facebook_username
-twitter_username: twitter_username
-instagram_username: instagram_username
-linkedin_username: linkedin_username
-medium_username: medium_username
+github_username: GeneralSandman
+# facebook_username: facebook_username
+# twitter_username: twitter_username
+# instagram_username: instagram_username
+# linkedin_username: linkedin_username
+# medium_username: medium_username
 
 # Build settings
 markdown: kramdown
@@ -26,7 +26,7 @@ highlighter: rouge
 permalink: /:title/
 
 # Plugins
-gems:
+plugins:
   - jemoji
 
 # Links to include in menu navigation

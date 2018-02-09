@@ -18,7 +18,7 @@
     "gulp",
     "stylus"
   ],
-  "author": "Thiago Rossener",
+  //"author": "Thiago Rossener",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/thiagorossener/thiagorossener.github.io/issues"

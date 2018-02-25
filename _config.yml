@@ -1,9 +1,9 @@
 # Site Settings
-title: Hear My Roar
-email: GeneralSandman@163.com
-description: 追求卓越
+title: Hear Me Roar
+email: generalsandman@163.com
+description: 追求卓越，成功就会不请自来！！！
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.dissigil.cn" # the base hostname & protocol for your site
+url: "www.dissigil.cn" # the base hostname & protocol for your site
 google_analytics: ""
 
 # User Settings
@@ -26,7 +26,7 @@ highlighter: rouge
 permalink: /:title/
 
 # Plugins
-plugins:
+plugins_dir:
   - jemoji
 
 # Links to include in menu navigation

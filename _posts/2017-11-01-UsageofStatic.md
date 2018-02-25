@@ -1,12 +1,17 @@
 ---
 layout: post
-title: C/C++中static用法
+title: "C/C++中static用法"
 description: static主要在单例模式中，当时他的规则具体来说是什么？是什么时候定义的，什么时候释放的，与普通变量有什么区别，希望这个blog可以清晰的解释这个问题。
-img: atsea.jpg
-width: medium
-color: 00FF00
-author: GeneralSandman
+image: 'http://oj8qdsa91.bkt.clouddn.com/1%E5%86%B0%E4%B8%8E%E7%81%AB%E4%B9%8B%E6%AD%8C-.jpg'
+category: 'C++'
+tags:
+-
+-
+-
+twitter_text: 
+introduction: 
 ---
+
 
 ### 1.我们新建立一个类，通过类的构造、析构函数来查看static修饰的变量与不同变量有什么不同。代码如下
 

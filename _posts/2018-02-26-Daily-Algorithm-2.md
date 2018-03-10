@@ -1,22 +1,13 @@
 ---
 layout: post
-title: "剑指Offer-"
+title: ""
 description: 
-image: ''
+image: 'http://'
 category: 'blog'
 tags:
-- Gain-Offers
-- Algorithm
+-
+-
+-
 twitter_text: 
 introduction: 
 ---
-
-
-> 
-
-
-```cpp
-
-
-
-```

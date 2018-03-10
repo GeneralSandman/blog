@@ -1,11 +1,11 @@
 ---
 layout: post
-title: ""
+title: "Extern 用法"
 description: 面试中经常被问道extern的用法，这个问题也困扰我很久了，终于有时间好好研究这个问题了，发现这个问题真的有点复杂，还涉及到编译原理的问题。extern与static有什么不同呢？他们的作用域有什么不同呢？希望这篇文章可以解释清楚这些问题。
 image: 'http://oj8qdsa91.bkt.clouddn.com/1%E5%86%B0%E4%B8%8E%E7%81%AB%E4%B9%8B%E6%AD%8C--%E8%B0%B7%E5%9C%B0%E7%BA%B9%E7%AB%A0.jpg'
-category: 'C++'
+category: 'blog'
 tags:
--
+- C++
 -
 -
 twitter_text: 

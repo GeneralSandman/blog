@@ -1,0 +1,142 @@
+<xmp>
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+/*memcopy*/
+void memcopy(void *d, const void *s, unsigned int count)
+{
+    char *dest = (char *)d, *source = (char *)s;
+    if (dest == nullptr || source == nullptr || count == 0)
+        return;
+
+    if (dest <= source || source + count <= dest)
+    {
+        //copy from head to tail
+        while (count--)
+        {
+            *(dest++) = *(source++);
+        }
+    }
+    else
+    {
+        dest += count - 1;
+        source += count - 1;
+        while (count--)
+        {
+            *(dest--) == *(source--);
+        }
+    }
+}
+
+/*strcopy*/
+char *strcopy(char *dest, const char *sour)
+{
+    if (sour == nullptr || dest == nullptr)
+        return dest;
+    char *res = dest;
+
+    memcopy((void *)dest, (const void *)sour, strlen(sour) + 1);
+
+    return res;
+}
+
+char *strcopy_n(char *dest, const char *sour, int n)
+{
+    if (sour == nullptr || dest == nullptr)
+        return dest;
+    char *res = dest;
+
+    memcopy((void *)dest, (const void *)sour, n);
+
+    return res;
+}
+
+/*strcat*/
+char *strcat(char *dest, const char *sour)
+{
+    if (sour == nullptr || dest == nullptr)
+        return dest;
+    char *p = dest;
+    while (*p != '\0')
+        p++;
+    while (*sour != '\0')
+        *(p++) = *(sour++);
+    *p = '\0';
+    return dest;
+}
+
+char *strcat_n(char *dest, const char *sour, int count)
+{
+    if (sour == nullptr || dest == nullptr)
+        return dest;
+    char *p = dest;
+    while (*p != '\0')
+        p++;
+
+    while (count-- && *sour != '\0')
+    {
+        *(p++) = *(sour++);
+    }
+    *p == '\0';
+    return dest;
+}
+
+/*strcmp*/
+int strcmp(const char *str1, const char *str2)
+{
+    if (str1 == nullptr && str2 == nullptr)
+        return 0;
+    else if (str1 == nullptr && str2 != nullptr)
+        return 1;
+    else if (str1 != nullptr && str2 == nullptr)
+        return 1;
+    else
+    {
+        while (*str1 != '\0' && *str2 != '\0')
+        {
+            if (*str1 != *str2)
+                break;
+            str1++;
+            str2++;
+        }
+    }
+    return *str1 - *str2;
+}
+
+int strcmp_n(const char *str1, const char *str2, int count)
+{
+    if (str1 == nullptr && str2 == nullptr)
+        return 0;
+    else if (str1 == nullptr && str2 != nullptr)
+        return 1;
+    else if (str1 != nullptr && str2 == nullptr)
+        return 1;
+    else
+    {
+        while (count-- && *str1 != '\0' && *str2 != '\0')
+        {
+            if (*str1 != *str2)
+                break;
+            str1++;
+            str2++;
+        }
+    }
+    return *str1 - *str2;
+}
+
+int main()
+{
+    char d1[10] = "---------";
+    char s1[3] = "ab";
+    char *s2 = "ab";
+
+    cout << strcopy_n(d1, s1, 2) << endl;
+
+    // cout << sizeof(d1) << endl;
+    // cout << sizeof(s1) << endl;
+    // cout << strlen(d1) << endl;
+    // cout << strlen(s1) << endl;
+    // cout << strlen(s2) << endl;
+}</xmp>

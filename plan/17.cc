@@ -1,0 +1,123 @@
+#include <iostream>
+
+using namespace std;
+
+class Base
+{
+  private:
+    int a;
+
+  public:
+    Base(int i)
+    {
+        a = i;
+        cout << "class Base constructor\n";
+    }
+
+    void print()
+    {
+        cout << "Base::print" << endl;
+    }
+
+    virtual void printVirtual()
+    {
+        cout << "Base::printVirtual" << endl;
+    }
+
+    virtual ~Base()
+    {
+        cout << "class Base destructor\n";
+    }
+};
+
+class Drive : public Base
+{
+  private:
+    int b;
+
+  public:
+    Drive(int i) : Base(i)
+    {
+        b = i;
+        cout << "class Drive constructor\n";
+    }
+
+    void print()
+    {
+        cout << "Drive::print" << endl;
+    }
+
+    virtual void printVirtual()
+    {
+        cout << "Drive::printVirtual" << endl;
+    }
+
+    virtual ~Drive()
+    {
+        cout << "class Drive destructor\n";
+    }
+};
+
+void test_dynamicCast(Base *s)
+{
+    Drive *p = dynamic_cast<Drive *>(s);
+    if (p != nullptr)
+        cout << "the s point to a Drive class\n";
+    else
+    {
+        cout << "the s point to a Base class\n";
+    }
+}
+
+int main()
+{
+    {
+        Base *p = new Drive(1);
+        p->print();
+        p->printVirtual();
+        delete p;
+    }
+    cout << "--" << endl;
+    {
+        Base *p = new Base(1);
+        p->print();
+        p->printVirtual();
+        delete p;
+    }
+    cout << "--" << endl;
+    {
+        // Drive *p = new Base(1);//compiler error
+        // p->print();
+        // p->printVirtual();
+        // delete p;
+    }
+    cout << "--" << endl;
+    {
+        Base *p = new Base(1);
+
+        Base *p2 = dynamic_cast<Base *>(p);
+        if (p2 != nullptr)
+        {
+            p2->print();
+            p2->printVirtual();
+        }
+        else
+        {
+            cout << "dynamic_cast false\n";
+        }
+        delete p;
+    }
+    cout << "--" << endl;
+    {
+        Base *p1 = new Drive(1);
+        Base *p2 = new Base(1);
+
+        test_dynamicCast(p1);
+        test_dynamicCast(p2);        
+
+        delete p1;
+        delete p2;
+    }
+
+    return 0;
+}

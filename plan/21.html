@@ -1,0 +1,98 @@
+<xmp>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cstring>
+#include <algorithm>
+#include <map>
+#include <queue>
+#include <set>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <deque>
+#include <list>
+#include <cmath>
+#include <climits>
+
+using namespace std;
+
+class Solution
+{
+  public:
+    vector<string> subdomainVisits(vector<string> &cpdomains)
+    {
+        map<string, int> hashTable;
+
+        vector<string> subDomains;
+        for (auto t : cpdomains)
+        {
+            string dom;
+            int times;
+            convert(t, dom, times);
+            convertDomains(t, subDomains);
+
+            for (auto i : subDomains)
+            {
+                hashTable[i] += times;
+            }
+        }
+
+        vector<string> res;
+        for (auto t : hashTable)
+        {
+            res.push_back(to_string(t.second) + " " + t.first);
+        }
+
+        return res;
+    }
+
+  private:
+    void convert(const string &src, string &res, int &times)
+    {
+        string t;
+        int i = 0;
+        for (; i < src.size(); i++)
+        {
+            if (src[i] == ' ')
+                break;
+            t += src[i];
+        }
+        times = atoi(t.c_str());
+        res.assign(src.begin() + i + 1, src.end());
+        // cout << "functin convert " << res << "-" << times << endl;
+    }
+
+    void convertDomains(const string &src, vector<string> &res)
+    {
+        res.clear();
+
+        string tmp;
+
+        for (int i = src.size() - 1; i >= 0 && src[i] != ' '; i--)
+        {
+            if (src[i] == '.')
+            {
+                res.push_back(tmp);
+            }
+            tmp = src[i] + tmp;
+        }
+
+        if (!tmp.empty())
+            res.push_back(tmp);
+    }
+};
+
+int main()
+{
+    Solution a;
+    vector<string> doms = {"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"};
+    vector<string> res = a.subdomainVisits(doms);
+    for (auto t : res)
+    {
+        cout << t << endl;
+    }
+    return 0;
+}
+
+</xmp>

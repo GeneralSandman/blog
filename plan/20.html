@@ -1,0 +1,85 @@
+<xmp>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cstring>
+#include <algorithm>
+#include <map>
+#include <queue>
+#include <set>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <deque>
+#include <list>
+#include <cmath>
+#include <climits>
+
+using namespace std;
+
+class Solution
+{
+  public:
+    int maxIncreaseKeepingSkyline(vector<vector<int>> &grid)
+    {
+        int col = grid.size();
+        if (col == 0)
+            return 0;
+        int row = grid[0].size();
+
+        vector<int> colMax(col, 0);
+        vector<int> rowMax(row, 0);
+
+        for (int i = 0; i < col; i++)
+        {
+            for (int j = 0; j < row; j++)
+            {
+                colMax[i] = max(colMax[i], grid[i][j]);
+                rowMax[j] = max(rowMax[j], grid[i][j]);
+            }
+        }
+
+        // for (auto t : colMax)
+        //     cout << t << " ";
+        // cout << endl;
+        // for (auto t : rowMax)
+        //     cout << t << " ";
+        // cout << endl;
+
+        int res = 0;
+
+        for (int i = 0; i < col; i++)
+        {
+            for (int j = 0; j < row; j++)
+            {
+                res += min(colMax[i], rowMax[j]) - grid[i][j];
+                // grid[i][j] = min(colMax[i], rowMax[j]);
+            }
+        }
+
+        // for (int i = 0; i < col; i++)
+        // {
+        //     for (int j = 0; j < row; j++)
+        //     {
+        //         cout << grid[i][j] << " ";
+        //     }
+        //     cout << endl;
+        // }
+        return res;
+    }
+};
+
+int main()
+{
+
+    Solution a;
+    vector<vector<int>> grid = {{3, 0, 8, 4},
+                                {2, 4, 5, 7},
+                                {9, 2, 6, 3},
+                                {0, 3, 1, 0}};
+    cout << a.maxIncreaseKeepingSkyline(grid) << endl;
+
+    return 0;
+}
+
+</xmp>

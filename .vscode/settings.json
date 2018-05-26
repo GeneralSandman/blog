@@ -2,6 +2,9 @@
     "files.associations": {
         "functional": "cpp",
         "array": "cpp",
-        "slist": "cpp"
+        "slist": "cpp",
+        "algorithm": "cpp",
+        "unordered_map": "cpp",
+        "iostream": "cpp"
     }
 }
